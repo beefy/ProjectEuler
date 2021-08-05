@@ -13,13 +13,11 @@ func main() {
 func sieve_of_eratosthenes(n int) []int {
 	sieve := make_range(n)
 	for i := 2; i < int(math.Sqrt(float64(n))); i++ {
-		criteria := func(ii int) bool {
-			return ii == i || ii % i != 0
+		criteria := func(y int) bool {
+			return y == i || y % i != 0
 		}
 		sieve = filter(sieve, criteria)
 	}
-
-	// return the last (largest) prime
 	return sieve;
 }
 
